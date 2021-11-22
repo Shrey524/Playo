@@ -34,9 +34,24 @@ class HomePage : AppCompatActivity() {
 
         for(items in response){
             var title : String = items.title
-            var author : String = items.author
-            var description : String = items.description
-            var photo : String = items.urlToImage
+            var author : String
+            if(items.author!=null){
+               author  = items.author
+            }else{
+                continue
+            }
+            var description : String
+            if(items.description!=null){
+                description  = items.description
+            }else{
+                continue
+            }
+            var photo : String
+            if(items.urlToImage!=null){
+                photo  = items.urlToImage
+            }else{
+                continue
+            }
             var url : String = items.url
 
             var sortedApiData = SortedApiData(title,author,description,photo,url)
